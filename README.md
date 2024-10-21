@@ -84,6 +84,12 @@ De todas formas es posible editar el archivo `.env` a gusto para proporcionar ot
 
 ### Ejecución en modo desarrollo (sin Docker)
 
+Compilar la aplicación por primera vez:
+
+```bash
+yarn build
+```
+
 Para iniciar el servidor en modo desarrollo, utilizar el siguiente comando:
 
 ```bash
