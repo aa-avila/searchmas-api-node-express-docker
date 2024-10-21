@@ -113,7 +113,7 @@ Este comando realiza una compilación limpia del código y posteriormente levant
 1. Construir la imagen de Docker:
 
    ```bash
-   docker build -t api-searchmas
+   docker build -t api-searchmas .
    ```
 
    Como resultado, se creará una imagen denominada `api-searchmas`.
