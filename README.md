@@ -1,24 +1,24 @@
-# SearchMas - Prueba Técnica: Node.js, Express, Docker
+# SearchMas - Technical Test: Node.js, Express, Docker
 
-**Autor: Agustín Avila Humerez**
+**Author: Agustín Avila Humerez**
 
-[Agustín en LinkedIn](https://www.linkedin.com/in/agustin-avila-humerez/)
+[Agustín on LinkedIn](https://www.linkedin.com/in/agustin-avila-humerez/)
 
-## Acerca del proyecto
+## About this project
 
-Este proyecto es una aplicación desarrollada con **Express.js**, como parte de una prueba técnica para la postulación a la posición _Backend Developer (Node.js)_. Consiste en un servidor que expone una API REST, el cual proporciona una serie de endpoints que a su vez permiten interactuar una base de datos **(MongoDB)** y una [API externa](https://rickandmortyapi.com/documentation), gestionando las rutas y middlewares correspondientes.
+This project is an application developed with **Express.js**, as part of a technical test for the application for the position of _Backend Developer (Node.js)_. It consists of a server that exposes a REST API, which provides a series of endpoints that allow interaction between a database **(MongoDB)** and an [external API](https://rickandmortyapi.com/documentation), managing the corresponding routes and middlewares.
 
-Para la realización de este proyecto se siguieron las pautas indicadas en la consigna brindada, la cual puede ser consultada en el siguiente enlace: [Consigna](https://drive.google.com/file/d/1QYfwRw-0Q53voZsdCba33hVPSuFT3MxF/view?usp=drive_link)
+To carry out this project, the guidelines indicated in the instructions provided were followed, which can be consulted at the following link:[Instructions](https://drive.google.com/file/d/1QYfwRw-0Q53voZsdCba33hVPSuFT3MxF/view?usp=drive_link)
 
-Además, se decidió utilizar **TypeScript** junto con **ESLint** y **Prettier** para mejorar tanto la experiencia de desarrollo como la escalabilidad y la calidad del código final.
+Additionally, it was decided to use **TypeScript** together with **ESLint** and **Prettier** to improve both the development experience and the scalability and quality of the final code.
 
-Por último, se implementaron algunos tests básicos a modo de ejemplo, utilizando **jest** y **supertest**.
+Finally, some basic tests were implemented as an example, using **jest** and **supertest**.
 
-## Dependencias
+## Dependencies
 
-Las principales dependencias utilizadas en el proyecto son las siguientes:
+The main dependencies used in the project are the following:
 
-### Dependencias productivas
+### Dependencies for production
 
 - [Node.js](https://nodejs.org/)
 - [Express.js](https://expressjs.com/)
@@ -32,7 +32,7 @@ Las principales dependencias utilizadas en el proyecto son las siguientes:
 - [helmet](https://www.npmjs.com/package/helmet)
 - [winston](https://www.npmjs.com/package/winston)
 
-### Dependencias adicionales para desarrollo
+### Additional dependencies for development
 
 - [TypeScript](https://www.typescriptlang.org/)
 - [ESLint](https://eslint.org/)
@@ -43,96 +43,96 @@ Las principales dependencias utilizadas en el proyecto son las siguientes:
 - [Nodemon](https://nodemon.io/)
 - [Docker](https://www.docker.com/)
 
-_NOTA: Para ver el listado completo de dependencias, consultar el archivo `package.json`._
+_NOTE: For a complete list of dependencies, see the `package.json` file._
 
-## Instalación
+## Installation
 
-### Pre-requisitos
+### Prerequisites
 
-Se requiere tener instalado:
+It is required to have installed:
 
 - [GIT](https://git-scm.com/downloads)
 - [NodeJS v18 o superior](https://nodejs.org/en/download/package-manager)
 - [Yarn](https://classic.yarnpkg.com/en/docs/install)
 
-### Clonar el repositorio
+### Clone the repository
 
 ```bash
 git clone https://github.com/aa-avila/searchmas-api-node-express-docker.git
 cd searchmas-api-node-express-docker
 ```
 
-### Descarga e instalación de dependencias
+### Downloading and installing dependencies
 
 ```bash
 yarn install
 ```
 
-### Configuración
+### Configuration
 
-Para la configuración inicial es necesario crear un archivo `.env` y copiar las variables de entorno especificadas en `.env.example`.
-Es posible hacerlo manualmente, o utilizando el siguiente comando en la consola:
+For initial setup it is necessary to create a `.env` file and copy the specified environment variables into `.env.example`.
+This can be done manually, or by using the following command in the console:
 
 ```bash
 cp .env.example .env
 ```
 
-A fines prácticos para esta prueba técnica, los valores provistos a modo de ejemplo son funcionales para su uso en desarrollo. Por lo que la URI de MongoDB provista apunta a una base de datos alojada en la nube mediante **MongoDB Atlas**.
-De todas formas es posible editar el archivo `.env` a gusto para proporcionar otros valores que se ajusten al caso particular del usuario.
+For the purposes of this technical test, the values ​​provided as examples are functional for development use. So the MongoDB URI provided points to a database hosted in the cloud using **MongoDB Atlas**.
+However, it is possible to edit the `.env` file as desired to provide other values ​​that fit the user's particular case.
 
-## Ejecutar el servidor en local
+## Run the server locally
 
-### Ejecución en modo desarrollo (sin Docker)
+### Running in development mode (without Docker)
 
-Compilar la aplicación por primera vez:
+Build the app for the first time:
 
 ```bash
 yarn build
 ```
 
-Para iniciar el servidor en modo desarrollo, utilizar el siguiente comando:
+To start the server in development mode, use the following command:
 
 ```bash
 yarn dev
 ```
 
-Este comando permite reinicializar la aplicación cada vez que se realizan cambios en el código, lo que permite acelerar la iteración en desarrollo.
+This command allows you to reinitialize your application whenever changes are made to the code, which helps speed up development iteration.
 
-### Ejecución en modo producción (sin Docker)
+### Running in production mode (without Docker)
 
-Para iniciar el servidor en modo producción:
+To start the server in production mode:
 
 ```bash
 yarn start
 ```
 
-Este comando realiza una compilación limpia del código y posteriormente levanta el servidor, asignando el valor `'production'` a la variable de entorno `NODE_ENV`.
+This command performs a clean compilation of the code and then starts the server, assigning the value `'production'` to the `NODE_ENV` environment variable.
 
-### Ejecución en modo producción (con Docker)
+### Running in production mode (with Docker)
 
-1. Construir la imagen de Docker:
+1. Build the Docker image:
 
    ```bash
    docker build -t api-searchmas .
    ```
 
-   Como resultado, se creará una imagen denominada `api-searchmas`.
+   As a result, an image named `api-searchmas` will be created.
 
-2. Iniciar el contenedor:
+2. Start the container:
 
    ```bash
    docker run -p 3000:3000 --env-file=.env api-searchmas
    ```
 
-Esto ejecutará el servidor dentro de un contenedor Docker y estará disponible en `http://localhost:3000`.
+This will run the server inside a Docker container and will be available at `http://localhost:3000`.
 
-_NOTA: Para crear la imagen y ejecutar el proyecto usando Docker, es necesario tener previamente instalado [Docker](https://www.docker.com/)_
+_NOTE: To create the image and run the project using Docker, you must have previously installed [Docker](https://www.docker.com/)_
 
-_NOTA: Los puertos pueden modificarse según necesidad del entorno._
+_NOTE: Ports can be modified according to the needs of the environment._
 
 ## Tests
 
-Ejecutar tests mediante el siguiente comando:
+Run tests using the following command:
 
 ```bash
 yarn test
@@ -142,15 +142,15 @@ yarn test
 
 ### POST /api/external-data
 
-- Recibe una solicitud para consultar una API externa y guarda en la base de datos: los datos del solicitante junto con parte de los datos obtenidos.
-- Dicha consulta, consiste en obtener la información de un personaje al azar, perteneciente a la serie televisiva _"Rick and Morty"_. Para lo cual se consume la siguiente API: [Rick And Morty API](https://rickandmortyapi.com/documentation)
+- Receives a request to query an external API and saves in the database: the requester's data along with part of the data obtained.
+- This query consists of obtaining information about a random character, belonging to the television series _"Rick and Morty"_. For this, the following API is used: [Rick And Morty API](https://rickandmortyapi.com/documentation)
 
 **Payload Schema**
 
-| Property         | Type     | Description                       |
-| ---------------- | -------- | --------------------------------- |
-| `requester*`     | `string` | Nombre del solicitante            |
-| `requestReason?` | `string` | Motivo de la solicitud (opcional) |
+| Property         | Type     | Description                      |
+| ---------------- | -------- | -------------------------------- |
+| `requester*`     | `string` | Requester's name                 |
+| `requestReason?` | `string` | Reason of the request (optional) |
 
 **Body Example:**
 
@@ -173,7 +173,7 @@ yarn test
 
 ### GET /api/data
 
-- Retorna los registros almacenados en la base de datos, junto con estadísticas adicionales.
+- Returns the records stored in the database, along with additional statistics.
 
 **OK (200) Response Example:**
 
@@ -213,11 +213,11 @@ yarn test
 
 ### GET /api/export-csv
 
-- Genera un archivo CSV descargable con los datos almacenados en la base de datos.
+- Generates a downloadable CSV file with the data stored in the database.
 
 ### GET /health
 
-- Endpoint adicional como utilidad "health check" para verificación de correcto despliegue y estado activo del servidor.
+- Additional endpoint as a "health check" utility to verify correct deployment and active status of the server.
 
 **OK (200) Response Example:**
 
